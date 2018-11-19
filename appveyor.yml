@@ -33,14 +33,14 @@ build_script:
   - git clone https://github.com/corretto/corretto-8.git
   - '%CYG_ROOT%/bin/bash -lc "cd /cygdrive/c/projects/compact-profiles/corretto-8/src && bash /cygdrive/c/projects/compact-profiles/corretto-8/src/configure --with-debug-level=release --disable-debug-symbols --disable-zip-debug-info --with-target-bits=64 --enable-unlimited-crypto --with-native-debug-symbols=none --with-freetype-include=/cygdrive/c/projects/compact-profiles/freetype/include --with-freetype-lib=/cygdrive/c/projects/compact-profiles/freetype/bin --with-build-number=192 --with-update-version=b12'
   - '%CYG_ROOT%/bin/bash -lc "cd /cygdrive/c/projects/compact-profiles/corretto-8/src && make profiles COMPRESS_JARS=true'
-  - 7z a -r C:\projects\compact-profiles\java-8-x64-compact1.zip C:\projects\compact-profiles\corretto-8\src\build\windows-x86_64-normal-server-release\images\j2re-compact1-image\*
-  - 7z a -r C:\projects\compact-profiles\java-8-x64-compact2.zip C:\projects\compact-profiles\corretto-8\src\build\windows-x86_64-normal-server-release\images\j2re-compact2-image\*
-  - 7z a -r C:\projects\compact-profiles\java-8-x64-compact3.zip C:\projects\compact-profiles\corretto-8\src\build\windows-x86_64-normal-server-release\images\j2re-compact3-image\*
+  - 7z a -r C:\projects\compact-profiles\java-8_192_b12-x64-compact1.zip C:\projects\compact-profiles\corretto-8\src\build\windows-x86_64-normal-server-release\images\j2re-compact1-image\*
+  - 7z a -r C:\projects\compact-profiles\java-8_192_b12-x64-compact2.zip C:\projects\compact-profiles\corretto-8\src\build\windows-x86_64-normal-server-release\images\j2re-compact2-image\*
+  - 7z a -r C:\projects\compact-profiles\java-8_192_b12-x64-compact3.zip C:\projects\compact-profiles\corretto-8\src\build\windows-x86_64-normal-server-release\images\j2re-compact3-image\*
   
 artifacts:
-  - path: Java x64 windows - compact1
+  - path: Java 8 x64 windows - compact1 - 192.b12
     name: C:\projects\compact-profiles\java-8_192_b12-x64-compact1.zip
-  - path: Java x64 windows - compact2
+  - path: Java 8 x64 windows - compact2 - 192.b12
     name: C:\projects\compact-profiles\java-8_192_b12-x64-compact2.zip
-  - path: Java x64 windows - compact3
+  - path: Java 8 x64 windows - compact3 - 192.b12
     name: C:\projects\compact-profiles\java-8_192_b12-x64-compact3.zip
