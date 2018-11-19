@@ -7,9 +7,6 @@ branches:
 platform: x64
 configuration: Release
 
-cache:
-    - '%CYG_CACHE%'
-
 environment:
   CYG_PACKAGES: make,zip,unzip
   CYG_MIRROR: http://cygwin.mirror.constant.com
