@@ -1,4 +1,3 @@
-version: 1.0.'{build}'
 image: Visual Studio 2013
 
 branches:
@@ -25,8 +24,8 @@ install:
   - if defined CYG_ROOT (%CYG_SETUP% --quiet-mode --no-shortcuts --only-site --root "%CYG_ROOT%" --site "%CYG_MIRROR%" --local-package-dir "%CYG_CACHE%" --packages "%CYG_PACKAGES%" --upgrade-also)
 
 build_script:
-  - curl -oL 
-  - 7z
+  - curl -OL https://ci.appveyor.com/api/buildjobs/l1aoprlilqmsd2wx/artifacts/freetype_2.8.1_x86_windows_dll.zip
+  - 7z x freetype_2.8.1_x86_windows_dll.zip -ofreetype
   - git clone https://github.com/corretto/corretto-8.git
-  - '%CYG_ROOT%/bin/bash -lc "bash /cygdrive/c/projects/compact-profiles/corretto-8/src/configure --with-debug-level=release --with-jvm-variants=client  --disable-debug-symbols --disable-zip-debug-info --enable-unlimited-crypto --with-extra-cflags=/O1 --with-freetype-include=/cygdrive/c/projects/freetype-2.8/build/include --with-freetype-lib=/cygdrive/c/projects/freetype-2.8/build/lib --with-target-bits=64'
+  - '%CYG_ROOT%/bin/bash -lc "bash /cygdrive/c/projects/compact-profiles/corretto-8/src/configure --with-debug-level=release --disable-debug-symbols --disable-zip-debug-info --with-target-bits=64 --enable-unlimited-crypto --with-freetype-include=/cygdrive/c/projects/freetype/build/include --with-freetype-lib=/cygdrive/c/projects/freetype/build/bin'
   - '%CYG_ROOT%/bin/bash -lc "cd /cygdrive/c/projects/compact-profiles/corretto-8/src && make profiles'
