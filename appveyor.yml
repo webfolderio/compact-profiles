@@ -24,7 +24,7 @@ install:
 build_script:
   - curl -OL https://ci.appveyor.com/api/buildjobs/t9pnmd0gypw21q8y/artifacts/freetype_2.8.1_x64_windows_dll.zip
   - 7z x freetype_2.8.1_x64_windows_dll.zip -ofreetype
-  - copy freetype\lib\freetype.lib freetype\bin\freetype.lib
+  - copy /Y freetype\lib\freetype.lib freetype\bin\freetype.lib
   - curl -OL https://ci.appveyor.com/api/buildjobs/t9pnmd0gypw21q8y/artifacts/freetype_2.8.1_x64_windows_static_crt_dll.zip
   - 7z x freetype_2.8.1_x64_windows_static_crt_dll.zip -ofreetype-static-crt
   - copy freetype-static-crt\bin\freetype.dll freetype\bin\freetype.dll
