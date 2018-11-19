@@ -27,5 +27,5 @@ build_script:
   - curl -OL https://ci.appveyor.com/api/buildjobs/l1aoprlilqmsd2wx/artifacts/freetype_2.8.1_x86_windows_dll.zip
   - 7z x freetype_2.8.1_x86_windows_dll.zip -ofreetype
   - git clone https://github.com/corretto/corretto-8.git
-  - '%CYG_ROOT%/bin/bash -lc "bash /cygdrive/c/projects/compact-profiles/corretto-8/src/configure --with-debug-level=release --disable-debug-symbols --disable-zip-debug-info --with-target-bits=64 --enable-unlimited-crypto --with-freetype-include=/cygdrive/c/projects/freetype/build/include --with-freetype-lib=/cygdrive/c/projects/freetype/build/bin'
+  - '%CYG_ROOT%/bin/bash -lc "bash /cygdrive/c/projects/compact-profiles/corretto-8/src/configure --with-debug-level=release --disable-debug-symbols --disable-zip-debug-info --with-target-bits=64 --enable-unlimited-crypto --with-freetype-include=/cygdrive/c/projects/freetype/include --with-freetype-lib=/cygdrive/c/projects/freetype/bin'
   - '%CYG_ROOT%/bin/bash -lc "cd /cygdrive/c/projects/compact-profiles/corretto-8/src && make profiles'
