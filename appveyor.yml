@@ -8,6 +8,7 @@ platform: x64
 configuration: Release
 
 environment:
+  JAVA_HOME: C:\Program Files\Java\jdk1.8.0
   CYG_PACKAGES: make,zip,unzip
   CYG_MIRROR: http://cygwin.mirror.constant.com
   CYG_ROOT: C:/cygwin64
@@ -35,9 +36,9 @@ build_script:
   - 7z a -r C:\projects\compact-profiles\java-8_192_b12-x64-compact3.zip C:\projects\compact-profiles\corretto-8\src\build\windows-x86_64-normal-server-release\images\j2re-compact3-image\*
   
 artifacts:
-  - path: Java 8 x64 windows - compact1 - 192.b12
-    name: C:\projects\compact-profiles\java-8_192_b12-x64-compact1.zip
-  - path: Java 8 x64 windows - compact2 - 192.b12
-    name: C:\projects\compact-profiles\java-8_192_b12-x64-compact2.zip
-  - path: Java 8 x64 windows - compact3 - 192.b12
-    name: C:\projects\compact-profiles\java-8_192_b12-x64-compact3.zip
+  - path: C:\projects\compact-profiles\java-8_192_b12-x64-compact1.zip
+    name: Java 8 x64 windows - compact1 - 192.b12
+  - path: C:\projects\compact-profiles\java-8_192_b12-x64-compact2.zip
+    name: Java 8 x64 windows - compact2 - 192.b12
+  - path: C:\projects\compact-profiles\java-8_192_b12-x64-compact3.zip
+    name: Java 8 x64 windows - compact3 - 192.b12
