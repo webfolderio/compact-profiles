@@ -24,9 +24,23 @@ install:
   - if defined CYG_ROOT (%CYG_SETUP% --quiet-mode --no-shortcuts --only-site --root "%CYG_ROOT%" --site "%CYG_MIRROR%" --local-package-dir "%CYG_CACHE%" --packages "%CYG_PACKAGES%" --upgrade-also)
 
 build_script:
-  - curl -OL https://ci.appveyor.com/api/buildjobs/l1aoprlilqmsd2wx/artifacts/freetype_2.8.1_x64_windows_dll.zip
+  - curl -OL https://ci.appveyor.com/api/buildjobs/t9pnmd0gypw21q8y/artifacts/freetype_2.8.1_x64_windows_dll.zip
   - 7z x freetype_2.8.1_x64_windows_dll.zip -ofreetype
   - copy freetype\lib\freetype.lib freetype\bin\freetype.lib
+  - curl -OL https://ci.appveyor.com/api/buildjobs/t9pnmd0gypw21q8y/artifacts/freetype_2.8.1_x64_windows_static_crt_dll.zip
+  - 7z x freetype_2.8.1_x64_windows_static_crt_dll.zip -ofreetype-static-crt
+  - copy freetype-static-crt\bin\freetype.dll freetype\bin\freetype.dll
   - git clone https://github.com/corretto/corretto-8.git
   - '%CYG_ROOT%/bin/bash -lc "bash /cygdrive/c/projects/compact-profiles/corretto-8/src/configure --with-debug-level=release --disable-debug-symbols --disable-zip-debug-info --with-target-bits=64 --enable-unlimited-crypto --with-freetype-include=/cygdrive/c/projects/compact-profiles/freetype/include --with-freetype-lib=/cygdrive/c/projects/compact-profiles/freetype/bin'
   - '%CYG_ROOT%/bin/bash -lc "cd /cygdrive/c/projects/compact-profiles/corretto-8/src && make profiles'
+  - 7z a -r java-8-x64-compact1.zip C:\projects\corretto-8\src\build\windows-x86_64-normal-server-release\images\j2re-compact1-image\*
+  - 7z a -r java-8-x64-compact2.zip C:\projects\corretto-8\src\build\windows-x86_64-normal-server-release\images\j2re-compact2-image\*
+  - 7z a -r java-8-x64-compact3.zip C:\projects\corretto-8\src\build\windows-x86_64-normal-server-release\images\j2re-compact3-image\*
+  
+artifacts:
+  - path: Java x64 windows - compact1
+    name: java-8-x64-compact1.zip
+  - path: Java x64 windows - compact2
+    name: java-8-x64-compact2.zip
+  - path: Java x64 windows - compact3
+    name: java-8-x64-compact3.zip
