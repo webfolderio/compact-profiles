@@ -1,0 +1,32 @@
+version: 1.0.'{build}'
+image: Visual Studio 2013
+
+branches:
+  only:
+    - master
+
+platform: x64
+configuration: Release
+
+cache:
+    - '%CYG_CACHE%'
+
+environment:
+  CYG_PACKAGES: make,zip,unzip
+  CYG_MIRROR: http://cygwin.mirror.constant.com
+  CYG_ROOT: C:/cygwin64
+  CYG_CACHE: C:/cygwin64/var/cache/setup
+  CYG_SETUP: C:/cygwin64/setup-x86_64.exe
+
+init:
+    - git config --global core.autocrlf input
+
+install:
+  - if defined CYG_ROOT (%CYG_SETUP% --quiet-mode --no-shortcuts --only-site --root "%CYG_ROOT%" --site "%CYG_MIRROR%" --local-package-dir "%CYG_CACHE%" --packages "%CYG_PACKAGES%" --upgrade-also)
+
+build_script:
+  - curl -oL 
+  - 7z
+  - git clone https://github.com/corretto/corretto-8.git
+  - '%CYG_ROOT%/bin/bash -lc "bash /cygdrive/c/projects/compact-profiles/corretto-8/src/configure --with-debug-level=release --with-jvm-variants=client  --disable-debug-symbols --disable-zip-debug-info --enable-unlimited-crypto --with-extra-cflags=/O1 --with-freetype-include=/cygdrive/c/projects/freetype-2.8/build/include --with-freetype-lib=/cygdrive/c/projects/freetype-2.8/build/lib --with-target-bits=64'
+  - '%CYG_ROOT%/bin/bash -lc "cd /cygdrive/c/projects/compact-profiles/corretto-8/src && make profiles'
