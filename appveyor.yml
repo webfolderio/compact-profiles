@@ -28,7 +28,7 @@ build_script:
   - 7z x freetype_2.8.1_x64_windows_static_crt_dll.zip -ofreetype-static-crt
   - copy freetype-static-crt\bin\freetype.dll freetype\bin\freetype.dll
   - git clone https://github.com/corretto/corretto-8.git
-  - '%CYG_ROOT%/bin/bash -lc "cd /cygdrive/c/projects/compact-profiles/corretto-8/src && bash /cygdrive/c/projects/compact-profiles/corretto-8/src/configure --with-debug-level=release --disable-debug-symbols --disable-zip-debug-info --with-target-bits=64 --enable-unlimited-crypto --with-native-debug-symbols=none --with-freetype-include=/cygdrive/c/projects/compact-profiles/freetype/include --with-freetype-lib=/cygdrive/c/projects/compact-profiles/freetype/bin --with-build-number=192'
+  - '%CYG_ROOT%/bin/bash -lc "cd /cygdrive/c/projects/compact-profiles/corretto-8/src && bash /cygdrive/c/projects/compact-profiles/corretto-8/src/configure --with-debug-level=release --disable-debug-symbols --disable-zip-debug-info --with-target-bits=64 --enable-unlimited-crypto --with-native-debug-symbols=none --with-freetype-include=/cygdrive/c/projects/compact-profiles/freetype/include --with-freetype-lib=/cygdrive/c/projects/compact-profiles/freetype/bin --with-build-number=b12 --with-update-version=192'
   - '%CYG_ROOT%/bin/bash -lc "cd /cygdrive/c/projects/compact-profiles/corretto-8/src && make profiles COMPRESS_JARS=true'
   - 7z a -r C:\projects\compact-profiles\java-8_192_b12-x64-compact1.zip C:\projects\compact-profiles\corretto-8\src\build\windows-x86_64-normal-server-release\images\j2re-compact1-image\*
   - 7z a -r C:\projects\compact-profiles\java-8_192_b12-x64-compact2.zip C:\projects\compact-profiles\corretto-8\src\build\windows-x86_64-normal-server-release\images\j2re-compact2-image\*
