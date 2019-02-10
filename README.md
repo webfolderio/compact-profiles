@@ -1,4 +1,4 @@
-# Java 8 compact profiles for Windows
+# Java 8 compact profiles for Windows (64-bit)
 
 [![AppVeyor](https://img.shields.io/appveyor/ci/WebFolder/compact-profiles.svg?label=Windows)](https://ci.appveyor.com/project/WebFolder/compact-profiles)
 
